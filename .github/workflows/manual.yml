@@ -111,7 +111,9 @@ jobs:
 
           # OnePlus 6 and OnePlus 6T use the unified defconfig
           make O=out ARCH=arm64 enchilada_defconfig
-
+          # devtmpfs
+          echo "CONFIG_DEVTMPFS=y" >> out/.config
+          echo "CONFIG_DEVTMPFS_MOUNT=y" >> out/.config
           # Enable BBR
           echo "CONFIG_TCP_CONG_BBR=y" >> out/.config
           echo "CONFIG_DEFAULT_TCP_CONG=\"bbr\"" >> out/.config
@@ -238,6 +240,8 @@ jobs:
           do.cleanuponabort=0
           device.name1=enchilada
           device.name2=fajita
+          device.name3=OnePlus6
+          device.name4=OnePlus6T
           supported.versions=
           supported.patchlevels=
           '; }
